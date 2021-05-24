@@ -1,4 +1,4 @@
-require 'game'
+require_relative '../lib/game'
 
 RSpec.describe Game do
   describe '#score' do
