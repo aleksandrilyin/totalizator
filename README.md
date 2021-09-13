@@ -1,6 +1,6 @@
 # Тотализатор
 
-Решение [тестового задания](https://github.com/aristofun/webdevdao/blob/master/test_assignments/totalizator.md) на позицию Ruby on Rails разработчика.
+Пари с машиной.
 
 ## Возможности
 
