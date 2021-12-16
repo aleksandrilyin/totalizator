@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module Game
-  def score(real_score_team1, real_score_team2, estimated_score_team1, estimated_score_team2)
-    real_score_comparison = real_score_team1 <=> real_score_team2
-    estimated_score_comparison = estimated_score_team1 <=> estimated_score_team2
+  def score(*scores)
+    real_score_comparison = scores[0] <=> scores[1]
+    estimated_score_comparison = scores[2] <=> scores[3]
 
-    if real_score_team1 < 0 || real_score_team1 > 9 ||
-        real_score_team2 < 0 || real_score_team2 > 9 ||
-        estimated_score_team1 < 0 || estimated_score_team1 > 9 ||
-        estimated_score_team2 < 0 || estimated_score_team2 > 9
+    if scores[0] < 0 || scores[0] > 9 ||
+        scores[1] < 0 || scores[1] > 9 ||
+        scores[2] < 0 || scores[2] > 9 ||
+        scores[3] < 0 || scores[3] > 9
       raise ArgumentError, "Unexpected score of the game of team other than 0-9"
-    elsif real_score_team1 == estimated_score_team1 && real_score_team2 == estimated_score_team2
+    elsif scores[0] == scores[2] && scores[1] == scores[3]
       1
     elsif real_score_comparison.positive? && estimated_score_comparison.positive? ||
         real_score_comparison.negative? && estimated_score_comparison.negative? ||
