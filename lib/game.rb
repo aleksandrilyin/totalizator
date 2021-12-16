@@ -5,10 +5,7 @@ module Game
     real_score_comparison = scores[0] <=> scores[1]
     estimated_score_comparison = scores[2] <=> scores[3]
 
-    if scores[0] < 0 || scores[0] > 9 ||
-        scores[1] < 0 || scores[1] > 9 ||
-        scores[2] < 0 || scores[2] > 9 ||
-        scores[3] < 0 || scores[3] > 9
+    if scores.map { |score| score.between?(0, 9) }.include?(false)
       raise ArgumentError, "Unexpected score of the game of team other than 0-9"
     elsif scores[0] == scores[2] && scores[1] == scores[3]
       1
