@@ -14,5 +14,11 @@ estimated_score_team2 = gets.to_i
 puts "\nThe real score of the game: #{real_score_team1}:#{real_score_team2}"
 puts "The estimated score of the game: #{estimated_score_team1}:#{estimated_score_team2}"
 
-game = Game.score(real_score_team1, real_score_team2, estimated_score_team1, estimated_score_team2)
+begin
+  game = Game.score(real_score_team1, real_score_team2, estimated_score_team1, estimated_score_team2)
+rescue ArgumentError => e
+  puts "\n#{e.message}"
+  exit(1)
+end
+
 puts "\nScore: #{game}"
